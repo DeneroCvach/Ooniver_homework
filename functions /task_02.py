@@ -33,7 +33,7 @@ def multiple_func(**kwargs):
 
 
 def main():
-    print(f'Factorial equals -> {factorial(n=int(input("Enter the number: ")))}')
+    print(f'Factorial equals -> {factorial(3)}')
     print()
     result = sum_func(2, 5, 6, 7)
     print(f'Sum is -> {result}')
