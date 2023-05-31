@@ -25,11 +25,9 @@ def sum_func(*args):
 # и печатает в консоль только те, длина ключа у которых кратна 2
 
 def multiple_func(**kwargs):
-    multiple_list = []
     for key, value in kwargs.items():
         if not len(value) % 2:
-            multiple_list.append(value)
-    return multiple_list
+            print(value, end=' ')
 
 
 def main():
@@ -38,8 +36,7 @@ def main():
     result = sum_func(2, 5, 6, 7)
     print(f'Sum is -> {result}')
     print()
-    multiple_data = multiple_func(a='C++', b='Python', c='so', d='boring(', e='cool', f='!!<3')
-    print(*multiple_data)
+    print(multiple_func(a='C++', b='Python', c='so', d='boring(', e='cool', f='!!<3'))
     print()
 
 

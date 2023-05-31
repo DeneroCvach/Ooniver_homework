@@ -21,7 +21,7 @@ def create_matrix(n, m):
 
 def print_matrix(matrix):
     for row in matrix:
-        print(row)
+        print(*row, end='\n')
 
 
 def increase_sort_matrix(matrix):
