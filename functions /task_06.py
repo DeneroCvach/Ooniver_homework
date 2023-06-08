@@ -34,6 +34,7 @@ def kilometer_to_feet(f):
 
 def main():
     tprint("Konverter!!!")
+
     while True:
         print('''
 1. Degrees Celsius to Fahrenheit
@@ -46,11 +47,13 @@ def main():
 )
         operation = int(input('Enter operation number: '))
         print()
+
         if operation == 6:
             print('You left the program...')
             break
         units = int(input('Enter the sign of the desired value: '))
         print()
+
         if operation == 1:
             print(celsius_to_fahrenheit(c=units), 'is your converted value!')
         elif operation == 2:

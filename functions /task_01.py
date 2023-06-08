@@ -9,11 +9,11 @@
 from random import randint
 
 
-def create_matrix(n, m):
+def create_matrix(rows, columns):
     matrix = []
-    for _ in range(n):
+    for _ in range(rows):
         row = []
-        for _ in range(m):
+        for _ in range(columns):
             row.append(randint(10, 99))
         matrix.append(row)
     return matrix
@@ -24,25 +24,49 @@ def print_matrix(matrix):
         print(*row, end='\n')
 
 
-def increase_sort_matrix(matrix):
-    sorted_matrix = []
-    for row in matrix:
-        increase_sorted_row = sorted(row)
-        sorted_matrix.append(increase_sorted_row)
-    return sorted_matrix
+def increase_sort_matrix(matrix, columns):
+    flag = True
+
+    while flag:
+        flag = False
+
+        for list_index in range(len(matrix)):
+            for elem_index in range(len(matrix[list_index]) - 1):
+                if matrix[list_index][elem_index] > matrix[list_index][elem_index + 1]:
+                    matrix[list_index][elem_index], matrix[list_index][elem_index + 1] = matrix[list_index][elem_index + 1], matrix[list_index][elem_index]
+                    flag = True
+        for list_index in range(len(matrix) - 1):
+            if matrix[list_index][columns - 1] > matrix[list_index + 1][0]:
+                matrix[list_index][columns - 1], matrix[list_index + 1][0] = matrix[list_index + 1][0], matrix[list_index][columns - 1]
+                flag = True
+
+    return matrix
 
 
-def descending_sort_matrix(matrix):
-    sort_matrix = []
-    for row in matrix:
-        descending_sorted_row = sorted(row, reverse=True)
-        sort_matrix.append(descending_sorted_row)
-    return sort_matrix
+def descending_sort_matrix(matrix, columns):
+    flag = True
+
+    while flag:
+        flag = False
+
+        for list_index in range(len(matrix)):
+            for elem_index in range(len(matrix[list_index]) - 1):
+                if matrix[list_index][elem_index] < matrix[list_index][elem_index + 1]:
+                    matrix[list_index][elem_index], matrix[list_index][elem_index + 1] = matrix[list_index][
+                        elem_index + 1], matrix[list_index][elem_index]
+                    flag = True
+        for list_index in range(len(matrix) - 1):
+            if matrix[list_index][columns - 1] < matrix[list_index + 1][0]:
+                matrix[list_index][columns - 1], matrix[list_index + 1][0] = matrix[list_index + 1][0], matrix[list_index][columns - 1]
+                flag = True
+
+    return matrix
 
 
 def min_max_elem(matrix):
     min_elem = matrix[0][0]
     max_elem = matrix[0][0]
+
     for row in matrix:
         for elem in row:
             if elem > min_elem:
@@ -58,13 +82,21 @@ def square_matrix(matrix):
 
 
 def main():
-    matrix = create_matrix(n=int(input('Enter the number of rows: ')), m=int(input('Enter the number of columns: ')))
+    columns = int(input('Enter the number of columns: '))
+    rows = int(input('Enter the number of rows: '))
+    matrix = create_matrix(rows, columns)
     print_matrix(matrix)
     print()
     max_elem, min_elem = min_max_elem(matrix)
     print(f'Max matrix elem -> {max_elem} \nMin matrix elem -> {min_elem}')
     print()
-    print(square_matrix(matrix))
+    print('increase sort matrix')
+    print_matrix(increase_sort_matrix(matrix, columns))
+    print()
+    print('descending sort matrix')
+    print_matrix(descending_sort_matrix(matrix, columns))
+    print()
+    square_matrix(matrix)
 
 
 if __name__ == '__main__':

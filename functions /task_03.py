@@ -8,6 +8,7 @@ def sum_func(*args):
     s = 0
     for i in args:
         s += i
+
     return s
 
 
@@ -15,6 +16,7 @@ def mult_func(*args):
     m = 1
     for i in args:
         m *= i
+
     return m
 
 

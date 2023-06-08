@@ -18,6 +18,7 @@ def sum_func(*args):
     s = 0
     for i in range(len(args)):
         s += args[i] * i
+
     return s
 
 

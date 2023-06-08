@@ -11,6 +11,7 @@ def palindrome_check(word):
 
 def main():
     phrase = input('Enter word or phrase: ')
+
     if palindrome_check(phrase):
         print(f'{phrase} is palindrome!')
     else:
