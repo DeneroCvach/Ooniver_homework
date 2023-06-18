@@ -1,8 +1,15 @@
-number = int(input('Enter your number.. '))
+def factorial(number):
+    if number == 0:
+        return 1
+    else:
+        return number * factorial(number - 1)
 
-multiply = 1
 
-for i in range(1, number + 1):
-    multiply *= i
+def main():
+    number = int(input('enter ur number: '))
+    result = factorial(number)
+    print(result)
 
-print(multiply)
+
+if __name__ == '__main__':
+    main()

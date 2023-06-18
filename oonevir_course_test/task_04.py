@@ -9,4 +9,4 @@ print(random_list)
 min_max_dict['max'] = max(random_list)
 min_max_dict['min'] = min(random_list)
 
-print(min_max_dict)
+print(min_max_dict['max'], min_max_dict['min'])

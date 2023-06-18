@@ -8,13 +8,11 @@ def generate_square_matrix(n):
     return new_matrix
 
 
-def find_golden_middle(new_matrix):
+def find_golden_middle(new_matrix, n):
     golden_middle = []
 
-    for i in range(len(new_matrix)):
-        for j in range(len(new_matrix[i])):
-            if i == j:
-                golden_middle.append(new_matrix[i][j])
+    for i in range(n):
+        golden_middle.append(new_matrix[i][i])
 
     return golden_middle
 
@@ -34,7 +32,7 @@ def main():
     for row in new_matrix:
         print(row)
 
-    golden_middle = find_golden_middle(new_matrix)
+    golden_middle = find_golden_middle(new_matrix, n)
     print('\nGolden middle:')
     print(golden_middle)
 
