@@ -23,7 +23,6 @@ class Human:
             print("age can't be negative")
         else:
             self.__age = age
-            return self.__age
 
 
 person = Human('Ivan', 190, 80, 23)
