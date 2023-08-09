@@ -27,8 +27,8 @@ class Player(Base):
     lastname: Mapped[str] = mapped_column(String(40))
     age: Mapped[int] = mapped_column(SmallInteger)
     high: Mapped[int] = mapped_column(SmallInteger)
-    team_id: Mapped[int] = mapped_column(ForeignKey("team.id"), nullable=True)
     speed: Mapped[int] = mapped_column(SmallInteger)
+    team_id: Mapped[int] = mapped_column(ForeignKey("team.id"), nullable=True)
     create_date: Mapped[datetime] = mapped_column(insert_default=datetime.now())
 
     def __init__(self, firstname, lastname, age, high, speed):

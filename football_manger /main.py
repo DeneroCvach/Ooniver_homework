@@ -21,6 +21,8 @@ def main():
     # else:
     #     print('Enter somthing u work with!')
     add_player('Marco', 'Balatelly', 27, 190, 32)
+    Base.metadata.create_all(engine)
+
 
 if __name__ == '__main__':
     main()
