@@ -20,7 +20,8 @@ def main():
     #         add_player(firstname, lastname, age, high, speed)
     # else:
     #     print('Enter somthing u work with!')
-    add_player('Marco', 'Balatelly', 27, 190, 32)
+    # add_player('Mario', 'Balatelli', 27, 190, 32)
+    add_football_team('FC Minsk', 30)
     Base.metadata.create_all(engine)
 
 

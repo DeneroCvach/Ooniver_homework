@@ -1,4 +1,5 @@
 from datetime import datetime
+from engine import engine
 
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import SmallInteger, String, ForeignKey
