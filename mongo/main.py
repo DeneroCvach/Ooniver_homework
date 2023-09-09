@@ -1,10 +1,11 @@
 import datetime
 from pymongo import MongoClient
+from bson import ObjectId
 
 client = MongoClient('localhost', 27017)
 
 db = client.super_db
-books = db.boooks
+books = db.books
 
 
 def add_paper_book_document(title, author, year_of_publishing, genre, pages):
@@ -50,19 +51,32 @@ def add_electronic_book_document(title, author, year_of_publishing, genre, size,
 
 def add_book_to_db(book):
     if type(book) is list:
-        book_id = books.insert_many(book).inserted_id
-    else:
         book_id = books.insert_one(book).inserted_id
+    else:
+        book_id = books.insert_many(book).inserted_id
 
     return book_id
 
 
 def book_id_finder(book_id):
-    id = books.find_one({"_id": book_id})
+    id = books.find_one({"_id": ObjectId(book_id)})
 
     return id
 
-# print(post_1_id)
-# print(posts.find())
-# document = posts.find({"_id": post_1_id})
-# posts = posts.find()
+
+def get_all_books():
+    books_collection = books.find()
+    books_list = [book for book in books_collection]
+
+    return books_list
+
+
+def get_books_by_author(author):
+    book_collection = books.find({'author': author})
+    book_list = [book for book in book_collection]
+
+    return book_list
+
+
+def delete_book_by_id(book_id):
+    db.books.update_one({'_id': ObjectId(book_id)}, {'$set': {'is_deleted': True}})
