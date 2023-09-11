@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get"  action="/vibe">
+    <p>Это GET форма</p>
+    <table>
+        <tbody>
+            <tr>
+                <td><textarea placeholder="как вы себя чувствуете?" name="vibe" required></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Отправить"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<form method="post" action="/info">
+    <p>Это POST форма</p>
+    <input type="text" name="name" required placeholder="Имя"><br>
+    <input type="number" name="age" required placeholder="Возраст"><br>
+    <select name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select><br>
+    <input type="submit" value="Отправить">
+</form>
+</body>
+</html>
