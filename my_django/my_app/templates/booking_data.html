@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   {% if booking_data %}
+       <p>
+           {{booking_data.book_name.lable}} {{booking_data.book_name.value}}
+       </p>
+
+       <p>
+           {{booking_data.person_name.lable}} {{booking_data.person_name.value}}
+       </p>
+
+       <p>
+           {{booking_data.booking_data.lable}} {{booking_data.booking_data.value}}
+       </p>
+
+   {% else %}
+   Возможно, вы забыли передать данные..
+   {% endif %}
+
+</body>
+</html>
