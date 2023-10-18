@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Without csfr</title>
+</head>
+<body>
+<form method="post" action="http://127.0.0.1:8000/login">
+    <p>Enter your data to login!</p>
+    <input type="text" name="login" placeholder="login" required><br>
+    <input type="password" name="password" placeholder="password" required><br>
+    <input type="submit" value="send">
+</form>
+
+<form method="get"  action="http://127.0.0.1:8000/login">
+    <p>Enter page number!</p>
+    <input type="number" name="page_number" required><br>
+    <input type="submit" value="send">
+</form>
+</body>
+</html>
